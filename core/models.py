@@ -104,3 +104,30 @@ class BaseModel(models.Model):
             sender=self.__class__,
             instance=self
         )
+
+
+class BreadCrumbs(BaseModel):
+    user = models.CharField(
+        max_length=300, blank=True, null=True, db_index=True
+    )
+    user_agent = models.CharField(
+        max_length=500, blank=True, null=True
+    )
+    ip = models.CharField(
+        max_length=100, blank=True, null=True, db_index=True
+    )
+    method = models.CharField(
+        max_length=10, blank=True, null=True, db_index=True
+    )
+    url = models.CharField(
+        max_length=1000, blank=True, null=True
+    )
+    referer = models.CharField(
+        max_length=1000, blank=True, null=True
+    )
+    get = models.TextField(
+        blank=True, null=True
+    )
+    post = models.TextField(
+        blank=True, null=True
+    )
