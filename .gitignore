@@ -221,3 +221,4 @@ ENV/
 .ropeproject
 
 *.sqlite3
+*/devel.py
