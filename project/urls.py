@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
+
+login_template = {'template_name': 'login.html'}
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', login, login_template, name='login'),
+    url(
+        r'^sair$',
+        logout, {
+            'next_page': '/',
+            'template_name': login_template
+        },
+        name='logout'
+    ),
 ]
